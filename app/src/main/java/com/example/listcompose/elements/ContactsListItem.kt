@@ -19,8 +19,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.listcompose.data.Contact
+import com.example.listcompose.getAvatarColor
 
 @Composable
 fun ContactsListItem(
@@ -41,10 +45,14 @@ fun ContactsListItem(
             Box(
                 modifier = Modifier
                     .size(48.dp)
-                    .background(MaterialTheme.colorScheme.primaryContainer, shape = androidx.compose.foundation.shape.CircleShape),
+                    .background(color = getAvatarColor(contact.id), shape = androidx.compose.foundation.shape.CircleShape),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "${contact.name.first()}${contact.lastName.first()}")
+                Text(
+                    text = "${contact.name.first()}${contact.lastName.first()}",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold
+                )
             }
 
             Spacer(modifier = Modifier.width(16.dp))
